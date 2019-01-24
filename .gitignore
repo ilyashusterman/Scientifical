@@ -6,3 +6,4 @@
 __pycache__
 venv/
 data_center_monitor/venv/
+*.sqlite3

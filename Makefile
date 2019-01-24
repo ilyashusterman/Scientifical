@@ -27,9 +27,9 @@ setup:
 .PHONY: run_server
 run_server:
 	$(VERBOSE) python data_center_monitor/manage.py runserver
-.PHONY: test_satistics
-test_satistics:
-	$(VERBOSE) nosetests
+.PHONY: test_statistics
+test_statistics:
+	$(VERBOSE) nosetests/data_center_monitor/applications_center_backend/test
 .PHONY: test
 test:
 	$(VERBOSE) python data_center_monitor/manage.py test

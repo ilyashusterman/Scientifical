@@ -19,6 +19,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
+# Extra places for collectstatic to find static files.
+
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '&t=)ahsr#tad0qcrr!&ny4rjgufrr3f$p&nx4dc7f@23tdkxux'
 
@@ -51,10 +53,12 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'data_center_monitor.urls'
 
+TEMPLATES_STATISTICS = os.path.join(BASE_DIR, 'data_center_monitor/templates')
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [TEMPLATES_STATISTICS],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -118,3 +122,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'data_center_monitor/static'),
+]

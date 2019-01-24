@@ -24,6 +24,9 @@ setup:
 	$(VERBOSE) virtualenv -p python3.6 venv
 	$(VERBOSE) pip install -r requirements.txt
 	$(VERBOSE) python data_center_monitor/manage.py migrate
+.PHONY: run_server
+run_server:
+	$(VERBOSE) python data_center_monitor/manage.py runserver
 .PHONY: test_satistics
 test_satistics:
 	$(VERBOSE) nosetests

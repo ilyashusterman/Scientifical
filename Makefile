@@ -1,5 +1,5 @@
 ################################################################################
-# Makefile for BestCarFinder
+# Makefile for Scientifical
 ################################################################################
 
 # Prefer bash shell
@@ -19,6 +19,14 @@ else
     override VERBOSE:=@
 endif
 
+.PHONY: setup
+setup:
+	$(VERBOSE) virtualenv -p python3.6 venv
+	$(VERBOSE) pip install -r requirements.txt
+	$(VERBOSE) python data_center_monitor/manage.py migrate
+.PHONY: test_satistics
+test_satistics:
+	$(VERBOSE) nosetests
 .PHONY: test
 test:
-	$(VERBOSE) nosetests
+	$(VERBOSE) python data_center_monitor/manage.py test

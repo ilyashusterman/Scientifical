@@ -19,8 +19,12 @@
 <body>
   <!-- Add your site or application content here -->
   <p>Data Center Apps-Processes Dashboards</p>
-<h1>{{ statistics }}</h1>
-<h1>{{ statistics.application_processes }}</h1>
+<h1>{{ statistics_dashboard.application_processes }}</h1>
+  <div>
+    {% for application_process in statistics_dashboard.application_processes %}
+      {{ application_process.name }}
+    {% endfor %}
+  </div>
 </body>
 
 </html>

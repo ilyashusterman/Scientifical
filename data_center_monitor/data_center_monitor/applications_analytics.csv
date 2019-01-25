@@ -1,2 +1,5 @@
 pid,name,cpu_frequency,voltage,temperature,num_threads,memory_consumption
 1,stressor_memory_1,2400.04,34.34,40.5,3,20
+1,stressor_cpu_1,3400.06,36.56,43.7,1,80
+1,stressor_memory_3,0987.77,74.52,33.1,3,22
+1,stressor_memory_4,5437.42,93.11,03.6,3,09

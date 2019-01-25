@@ -126,3 +126,4 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'data_center_monitor/static'),
 ]
+STATIC_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

@@ -9,3 +9,4 @@ class ApplicationProcess(models.Model):
     temperature = models.DecimalField(decimal_places=5, max_digits=10)
     num_threads = models.IntegerField()
     memory_consumption = models.DecimalField(decimal_places=5, max_digits=10)
+    report_time = models.DateTimeField(auto_now=True)

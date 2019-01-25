@@ -1,0 +1,2 @@
+pid,name,cpu_frequency,voltage,temperature,num_threads,memory_consumption
+1,google,2400.04,34.34,40.5,3,2

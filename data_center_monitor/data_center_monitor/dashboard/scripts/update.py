@@ -8,6 +8,8 @@ django.setup()
 
 
 names = ['cpu_frequency_stress', 'voltage_stress', 'temperature_stress', 'num_threads_stress', 'memory_consumption_stress']
+
+
 def get_dynamic_row():
 	pid = random.randint(10111, 17000)
 	name = '{}_{}'.format(random.choice(names), random.randint(1, 11))
@@ -25,6 +27,7 @@ def get_dynamic_row():
 		       'num_threads': num_threads,
 		'memory_consumption': memory_consumption
 	}
+
 
 def get_dynamic_df():
 	rows = [get_dynamic_row() for i in range(40)]

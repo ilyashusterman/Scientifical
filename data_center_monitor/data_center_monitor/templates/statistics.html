@@ -5,12 +5,8 @@
   <meta charset="utf-8">
   <title>Statistics Cloud Dashboard</title>
   <meta name="description" content="">
-
     {% load static %}
-  <!-- Place favicon.ico in the root directory -->
-
   <link rel="stylesheet" href="{% static 'css/main.css' %}">
-
 </head>
 
 <body>
@@ -18,65 +14,29 @@
 <table class="container">
 	<thead>
 		<tr>
-			<th><h1>Sites</h1></th>
-			<th><h1>Views</h1></th>
-			<th><h1>Clicks</h1></th>
-			<th><h1>Clicks2</h1></th>
-			<th><h1>Average</h1></th>
+			<th><h1>Pid</h1></th>
+			<th><h1>Name</h1></th>
+			<th><h1>Cpu Frequency</h1></th>
+			<th><h1>Voltage</h1></th>
+			<th><h1>Temperature</h1></th>
+			<th><h1>Num Threads</h1></th>
+			<th><h1>Memory Consumption</h1></th>
 		</tr>
 	</thead>
 	<tbody>
-		<tr>
-			<td>Google</td>
-			<td>9518</td>
-			<td>6369</td>
-			<td>6369</td>
-			<td>01:32:50</td>
-		</tr>
-		<tr>
-			<td>Twitter</td>
-			<td>7326</td>
-			<td>10437</td>
-			<td>10437</td>
-			<td>00:51:22</td>
-		</tr>
-		<tr>
-			<td>Amazon</td>
-			<td>4162</td>
-			<td>5327</td>
-			<td>5327</td>
-			<td>00:24:34</td>
-		</tr>
-    <tr>
-			<td>LinkedIn</td>
-			<td>3654</td>
-			<td>2961</td>
-			<td>2961</td>
-			<td>00:12:10</td>
-		</tr>
-    <tr>
-			<td>CodePen</td>
-			<td>2002</td>
-			<td>4135</td>
-			<td>4135</td>
-			<td>00:46:19</td>
-		</tr>
-    <tr>
-			<td>GitHub</td>
-			<td>4623</td>
-			<td>3486</td>
-			<td>3486</td>
-			<td>00:31:52</td>
-		</tr>
+	{% for application_process in statistics_dashboard.application_processes %}
+			<tr>
+				<td>{{application_process.pid}} </td>
+				<td>{{application_process.name}}</td>
+				<td>{{application_process.cpu_frequency}} Hz</td>
+				<td>{{application_process.voltage}} Volt</td>
+				<td>{{application_process.temperature}} C</td>
+				<td>{{application_process.num_threads}}</td>
+				<td>{{application_process.memory_consumption}} MB</td>
+			</tr>
+	{% endfor %}
 	</tbody>
 </table>
-  <!-- Add your site or application content here -->
-  <div>
-    {% for application_process in statistics_dashboard.application_processes %}
-      {{ application_process.name }}
-    {% endfor %}
-  </div>
-
 </body>
 
 </html>

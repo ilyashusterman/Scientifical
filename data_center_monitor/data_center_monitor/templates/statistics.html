@@ -5,12 +5,26 @@
   <meta charset="utf-8">
   <title>Statistics Cloud Dashboard</title>
   <meta name="description" content="">
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
     {% load static %}
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" href="{% static 'css/main.css' %}">
+	<script>
+
+$("#open-modal1").on("click", function() {
+     console.log("on ilya ius the best");
+     console.log($(this).attr("data"));
+      $("#exampleModal").attr('aria-hidden', 'false');
+});
+
+</script>
 </head>
 
 <body>
-  <h1>Data Center Apps-Processes Dashboard</h1>
+  <h1>Data Center Apps/Processes Dashboard</h1>
 <table class="container">
 	<thead>
 		<tr>
@@ -21,11 +35,12 @@
 			<th><h1>Temperature</h1></th>
 			<th><h1>Num Threads</h1></th>
 			<th><h1>Memory Consumption</h1></th>
+			<th><h1>Recommendation</h1></th>
 		</tr>
 	</thead>
 	<tbody>
 	{% for application_process in statistics_dashboard.application_processes %}
-			<tr>
+			<tr >
 				<td>{{application_process.pid}} </td>
 				<td>{{application_process.name}}</td>
 				<td>{{application_process.cpu_frequency}} Hz</td>
@@ -33,10 +48,32 @@
 				<td>{{application_process.temperature}} C</td>
 				<td>{{application_process.num_threads}}</td>
 				<td>{{application_process.memory_consumption}} MB</td>
+				<td><a id="open-modal1" class="btn btn-info" >{{application_process.recommendation}}</a></td>
 			</tr>
 	{% endfor %}
 	</tbody>
 </table>
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 </body>
 
 </html>

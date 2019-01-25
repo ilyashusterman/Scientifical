@@ -24,7 +24,8 @@ class ApplicationStatusUpdate(object):
 			                                  voltage=application_process.voltage,
 			                                  temperature=application_process.temperature,
 			                                  num_threads=application_process.num_threads,
-			                                  memory_consumption=application_process.memory_consumption)
+			                                  memory_consumption=application_process.memory_consumption,
+			                                  recommendation=application_process.recommendation)
 
 	def run(self, filename=None):
 		self.load_status_file(filename)

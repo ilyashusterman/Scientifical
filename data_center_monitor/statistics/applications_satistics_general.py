@@ -5,7 +5,7 @@ def memory_usage():
 
 
 def cpu_usage():
-	return {'cpu_usage': '{}%'.format(psutil.cpu_percent() + 14)}
+	return {'cpu_usage': '{}%'.format(psutil.cpu_percent() + 14.0)}
 
 
 def heat_consumption():
